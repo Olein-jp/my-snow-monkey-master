@@ -32,36 +32,25 @@ define( 'MY_SNOW_MONKEY_MASTER_URL', untrailingslashit( plugin_dir_url( __FILE__
 define( 'MY_SNOW_MONKEY_MASTER_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
- * Register style
+ * Require files
  */
-add_action(
-	'wp_enqueue_scripts',
-	function () {
-		wp_enqueue_style(
-			'my-snow-monkey-style',
-			MY_SNOW_MONKEY_MASTER_URL . '/build/css/style.css',
-			array( Framework\Helper::get_main_style_handle() ),
-			filemtime( MY_SNOW_MONKEY_MASTER_PATH . '/build/css/style.css' )
-		);
+$my_snow_monkey_master_dirs = [
+	'functions',
+	'snow-monkey'
+];
 
-		wp_enqueue_script(
-			'my-snow-monkey-scripts',
-			MY_SNOW_MONKEY_MASTER_URL . '/build/js/scripts.js',
-			null,
-			filemtime( MY_SNOW_MONKEY_MASTER_PATH . '/build/js/scripts.js' ),
-			true
-		);
+foreach ( $my_snow_monkey_master_dirs as $dir ) {
+	$dir_path = MY_SNOW_MONKEY_MASTER_PATH . '/' . $dir . '/';
+
+	if ( file_exists( $dir_path ) ) {
+		opendir( $dir_path );
+
+		while ( ( $file = readdir() ) !== false ) {
+			if ( ! is_dir( $file ) && ( strtolower( substr( $file, - 4 ) ) == ".php" ) && ( substr( $file, 0, 1 ) != "_" ) ) {
+				$load_file = $dir_path . $file;
+				require_once( $load_file );
+			}
+		}
+		closedir();
 	}
-);
-
-/**
- * Register Style for Editor
- */
-add_action(
-	'after_setup_theme',
-	function () {
-		add_theme_support( 'editor-styles' );
-
-		add_editor_style( MY_SNOW_MONKEY_MASTER_URL . '/build/css/editor-style.css' );
-	}
-);
+}
