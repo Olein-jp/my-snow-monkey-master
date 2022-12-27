@@ -1,6 +1,6 @@
 <?php
 /**
- * login_enqueue_scripts.php
+ * login_screen_enqueues.php
  *
  * @package my-snow-monkey-master
  * @author Olein-jp
