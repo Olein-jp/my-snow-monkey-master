@@ -36,7 +36,9 @@ define( 'MY_SNOW_MONKEY_MASTER_PATH', untrailingslashit( plugin_dir_path( __FILE
  */
 $my_snow_monkey_master_dirs = [
 	'functions',
-	'snow-monkey'
+	'snow-monkey',
+	'block-patterns',
+	'block-styles'
 ];
 
 foreach ( $my_snow_monkey_master_dirs as $dir ) {
@@ -48,6 +50,11 @@ foreach ( $my_snow_monkey_master_dirs as $dir ) {
 		while ( ( $file = readdir() ) !== false ) {
 			if ( ! is_dir( $file ) && ( strtolower( substr( $file, - 4 ) ) == ".php" ) && ( substr( $file, 0, 1 ) != "_" ) ) {
 				$load_file = $dir_path . $file;
+				echo '<hr>' . basename(__FILE__) . ' :: ' . __LINE__;
+				echo( '<pre>' );
+				var_dump( $load_file );
+				echo( '</pre>' );
+				echo '<hr>';
 				require_once( $load_file );
 			}
 		}
