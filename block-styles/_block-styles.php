@@ -14,9 +14,9 @@ add_action(
 		 */
 		$block_styles = [
 			[
-				'target' => '', /* ex) snow-monkey-blocks/btn */
-				'name'   => '', /* .is-style-[here] */
-				'label'  => '', /* ex) 矢印アイコン付き */
+				'target' => 'core/button', /* ex) snow-monkey-blocks/btn */
+				'name'   => 'sample', /* .is-style-[here] */
+				'label'  => 'Block Style Sample', /* ex) 矢印アイコン付き */
 			],
 		];
 
