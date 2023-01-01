@@ -14,7 +14,7 @@ add_action(
 	'init',
 	function () {
 		/* 一意のパターンスラッグ名 ex)`my-snow-monkey-master` */
-		$my_snow_monkey_master_block_pattern_slug = "my-snow-monkey-master/";
+		$my_snow_monkey_master_block_pattern_slug = "my_snow_monkey_master";
 
 		/* 好きなラベル名とスラッグ名を登録 ex)`My Snow Monkey Master` */
 		$my_snow_monkey_master_block_pattern_categories = [
@@ -40,7 +40,7 @@ add_action(
 			$block_pattern_file = MY_SNOW_MONKEY_MASTER_PATH . '/block-patterns/assets/' . $block_pattern . '.php';
 
 			register_block_pattern(
-				$my_snow_monkey_master_block_pattern_slug . $block_pattern,
+				$my_snow_monkey_master_block_pattern_slug . '/' . $block_pattern,
 				require $block_pattern_file
 			);
 		}
