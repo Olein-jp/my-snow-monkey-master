@@ -1,0 +1,9 @@
+@use "../variables";
+
+@mixin is-style-sample() {
+  .is-style-sample {
+    a {
+      color: red;
+    }
+  }
+}
