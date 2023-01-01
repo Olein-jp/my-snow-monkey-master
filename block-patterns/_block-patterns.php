@@ -13,12 +13,12 @@
 add_action(
 	'init',
 	function () {
-		/* 一意のパターンスラッグ名 */
-		$my_snow_monkey_master_block_pattern_slug = "/";
+		/* 一意のパターンスラッグ名 ex)`my-snow-monkey-master` */
+		$my_snow_monkey_master_block_pattern_slug = "my-snow-monkey-master/";
 
-		/* 好きなラベル名とスラッグ名を登録 */
+		/* 好きなラベル名とスラッグ名を登録 ex)`My Snow Monkey Master` */
 		$my_snow_monkey_master_block_pattern_categories = [
-			$my_snow_monkey_master_block_pattern_slug => [ 'label' => 'ラベル名を登録' ],
+			$my_snow_monkey_master_block_pattern_slug => [ 'label' => 'My Snow Monkey Master' ],
 		];
 
 		foreach ( $my_snow_monkey_master_block_pattern_categories as $name => $properties ) {
@@ -33,7 +33,7 @@ add_action(
 		 * `top-news.php` というパターンを用意した場合、`top-news` と設定する
 		 */
 		$my_snow_monkey_master_block_patterns = [
-			'', /* pattern file name */
+			'sample-pattern', /* pattern file name */
 		];
 
 		foreach ( $my_snow_monkey_master_block_patterns as $block_pattern ) {
