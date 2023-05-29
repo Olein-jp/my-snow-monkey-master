@@ -37,6 +37,7 @@ define( 'MY_SNOW_MONKEY_MASTER_PATH', untrailingslashit( plugin_dir_path( __FILE
 $my_snow_monkey_master_dirs = [
 	'functions',
 	'snow-monkey',
+	'snow-monkey-forms',
 	'block-patterns',
 	'block-styles'
 ];
